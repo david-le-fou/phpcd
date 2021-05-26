@@ -12,7 +12,7 @@ if($data[4]=='vide'):
         $conn->exec($sql);
         $file = $data[0].';'.$data[1].';'.$data[2].';'.$data[3].';'.'installed';
         file_put_contents('config.conf',$file);
-        echo "instalation ok<br>";
+        include('admin.php');
     } catch(PDOException $e) {
         echo $sql . "<br>" . $e->getMessage();
     }

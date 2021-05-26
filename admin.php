@@ -1,6 +1,15 @@
 <?php 
+$connect = file_get_contents('config.conf');
+$conf = explode(';',$connect);
+$db = new PDO("mysql:host=$conf[0];dbname=$conf[3]",$conf[1],$conf[2]);
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
+}
 $file = file_get_contents('modele/base_c.sql');
-print_r('<pre>');
-print_r(explode(';',$file));
-print_r('</pre>');
+$table_create = explode(';',$file);
+foreach($table_create as $valeur):
+    $db->exec($valeur);
+endforeach;
+header('location:list.php');
+echo $_SERVER['HTTP_HOST'];
 ?>

@@ -13,7 +13,11 @@ class Attribut_css_manager
 		 $q = $this->db->prepare("INSERT INTO `attribut_css` (`id`, `valeur`, `description`) VALUES (NULL, :valeur ,:description);");
 		 $q->bindValue(':valeur', $add->getValeur());
 		 $q->bindValue(':description',$add->getDescription());
-		 $q->execute();
+		 if($q->execute()){
+			header('refresh:0');
+		 }else{
+			 echo 'Existe';
+		 }
 	}
  	 public function Del($del){
 	 	$this->del = $del;

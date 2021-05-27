@@ -15,7 +15,6 @@ if (isset($_POST['attribut'])&& isset($_POST['description_attr'])):
                     'description'=>$_POST['description_attr']);
     $attcss = new Attribut_css($data_attribut);
     $mng_attcss->Add($attcss);  
-    header('refresh:0');
 endif;
 if(isset($_POST['valeur'])&& isset($_POST['description_val']) && isset($_POST['attr_select'])):
     $idattr_css = $mng_attcss->Sel_id_val($_POST['attr_select']);

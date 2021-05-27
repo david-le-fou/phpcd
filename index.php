@@ -1,3 +1,1 @@
-<?php
-header('location:controlleur/installation.php');
-?>
+<a href="/controlleur/installation.php"><button type="submit">GO</button></a>

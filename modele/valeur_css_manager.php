@@ -14,7 +14,11 @@ class Valeur_css_manager
 		$q->bindValue(':valeur', $add->getValeur());
 		$q->bindValue(':description',$add->getDescription());
 		$q->bindValue(':id_attribut_css',$add->getId_attribut_css());
-		$q->execute();
+		if($q->execute()){
+			header('refresh:0');
+		 }else{
+			 echo 'Existe';
+		 }
 	}
 	public function Dell($id){
 

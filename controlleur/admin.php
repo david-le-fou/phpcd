@@ -5,11 +5,11 @@ $db = new PDO("mysql:host=$conf[0];dbname=$conf[3]",$conf[1],$conf[2]);
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-$file = file_get_contents('modele/base_c.sql');
+$file = file_get_contents('../modele/base_c.sql');
 $table_create = explode(';',$file);
 foreach($table_create as $valeur):
     $db->exec($valeur);
 endforeach;
-header('location:list.php');
+header('location:controlleur.root.php');
 echo $_SERVER['HTTP_HOST'];
 ?>

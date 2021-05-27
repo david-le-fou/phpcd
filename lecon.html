@@ -14,3 +14,10 @@ window.open(page, 'photo', 'height=500, width=800, top=100, left=100, toolbar=no
 
 </body>
 </html>
+function no_accent($titre) {
+    $pattern = array("/é/", "/è/", "/ê/", "/ë/", "/ç/", "/à/", "/â/", "/î/", "/ï/", "/ù/", "/ô/");
+    $rep_pat = array("e", "e", "e", "e", "c", "a", "a", "i", "i", "u", "o");
+    $newtitre = preg_replace($pattern, $rep_pat, $titre);
+    return mb_strtoupper($newtitre{0},'UTF-8');
+ }
+ 

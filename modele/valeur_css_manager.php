@@ -1,50 +1,36 @@
 <?php
 class Valeur_css_manager
 {
-	 private $id;
-	 private $valeur;
-	 private $description;
-	 private $id_attribut_css;
+	private $db;
+	private $table = 'valeur_css';
+	public function __construct($db){
+		$this->setDb($db);
+	}
+	public function setDb(PDO $db){
+		$this->db = $db;
+	}
+	public function Add(Valeur_css $add){
+		$q = $this->db->prepare("INSERT INTO $this->table (`id`, `valeur`, `description`, `id_attribut_css`) VALUES (NULL, :valeur ,:description, :id_attribut_css);");
+		$q->bindValue(':valeur', $add->getValeur());
+		$q->bindValue(':description',$add->getDescription());
+		$q->bindValue(':id_attribut_css',$add->getId_attribut_css());
+		$q->execute();
+	}
+	public function Dell($id){
 
- 	 public function __construct(array $data){
-	 	 $this->hydrate($data);
-	 }
-	 public function hydrate(array $data){
-	 	 foreach($data as $key => $value){ 
-	 	 	 $methode = 'set'.ucwords($key); 
-	 	 	 if(method_exists($this,$methode)){ 
-	 	 	 	 $this->$methode($value); 
-	 	 	 }
-	 	 }
-	 }
+	}
+	public function Sel($id_attribut_css){
+		$result = [];
+		$q = $this->db->query("SELECT*FROM $this->table WHERE id_attribut_css = $id_attribut_css");
+		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+			{
+				$result[] = new Valeur_css($donnees);
+			}
+		return $result;
 
- 	 public function getId(){
-	 	 return $this->id;
-	 }
+	}
+	public function Up($id){
 
- 	 public function setId($id){
-	 	 $this->id = $id;
-	 }
-	 public function getValeur(){
-	 	 return $this->valeur;
-	 }
-
- 	 public function setValeur($valeur){
-	 	 $this->valeur = $valeur;
-	 }
-	 public function getDescription(){
-	 	 return $this->description;
-	 }
-
- 	 public function setDescription($description){
-	 	 $this->description = $description;
-	 }
-	 public function getId_attribut_css(){
-	 	 return $this->id_attribut_css;
-	 }
-
- 	 public function setId_attribut_css($id_attribut_css){
-	 	 $this->id_attribut_css = $id_attribut_css;
-	 }
+	}
 }
 ?>

@@ -1,9 +1,4 @@
 <?php
-// $db = new PDO("mysql:host=$host;dbname=$db",$usr,$pwd);
-// if ($db->connect_error) {
-//     die("Connection failed: " . $db->connect_error);
-// }
-// ////
 if($data[4]=='vide'):
     try {
         $conn = new PDO("mysql:host=$data[0]", $data[1], $data[2]);

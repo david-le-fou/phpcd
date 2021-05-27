@@ -2,6 +2,7 @@
 class Attribut_css_manager
 {
 	private $db;
+	private $table = 'attribut_css';
 	public function __construct($db){
 		$this->setDb($db);
 	}
@@ -29,16 +30,24 @@ class Attribut_css_manager
 		// endforeach;
 		// $attrib_css = new Attribut_css($data);	
 
-		$persos = [];
+		$attrib_css = [];
 
-			$q = $this->db->query("SELECT * FROM `attribut_css`");
+			$q = $this->db->query("SELECT * FROM $this->table");
 
 			while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 			{
-			$persos[] = new Attribut_css($donnees);
+				$attrib_css[] = new Attribut_css($donnees);
 			}
 
-		return $persos;
+		return $attrib_css;
+	}
+	public function Sel_id_val($name){
+		$result = null;
+		$q = $this->db->query("SELECT * FROM $this->table WHERE `valeur` = '$name'");
+		while($donnees = $q->fetch(PDO::FETCH_ASSOC)){
+			$result = new Attribut_css($donnees);
+		}
+		return $result;
 	}
 }
 ?>

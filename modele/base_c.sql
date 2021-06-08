@@ -20,5 +20,4 @@ CREATE TABLE `base_c`.`attribut_html` (
 	`description` TEXT NOT NULL ,  
 	`id_balise_html` INT NOT NULL ,    
 	PRIMARY KEY  (`id`)) ENGINE = InnoDB;
-INSERT INTO `attribut_css` (`id`, `valeur`, `description`) VALUES (NULL, 'all', 'tout les element');
 ALTER TABLE `attribut_css` ADD UNIQUE(`valeur`);

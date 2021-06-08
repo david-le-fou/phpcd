@@ -32,7 +32,7 @@ class Controll{
         echo "erreur 404!";
     }
     public function application(){
-        $connect = file_get_contents('config.conf');
+        $connect = file_get_contents('controlleur/config.conf');
         $conf = explode(';',$connect);
         $db = new PDO("mysql:host=$conf[0];dbname=$conf[3]",$conf[1],$conf[2]);
         $mng_attcss = new Attribut_css_manager($db);

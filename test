@@ -1,0 +1,11 @@
+border-right-color 	Couleur de la bordure de droite
+border-right-style 	Style de la bordure de droite.
+border-right-width 	Epaisseur de la bordure de droite.
+border-spacing 	Espacement entre deux traits de cellules adjacentes.
+border-style 	Style des bordures.
+border-top 	Caractéristiques de la bordure du haut. 
+border-top-color 	Couleur de la bordure du haut.
+border-top-style 	Style de la bordure du haut. 
+border-top-width 	Epaisseur de la bordure du haut.
+border-width 	Epaisseur des bordures.
+bottom 	Position basse d'un élément.

@@ -3,6 +3,7 @@
     <td>Attribut</td>
     <td>Valeur</td>
     <td>Description</td>
+    <td>Exemple</td>
 </tr>
             
 <?php
@@ -13,7 +14,6 @@
             echo "<table border='2' class='valeur'><tr><td>".$result_valeur_css[$c]->getValeur()."</td>";
             echo "<td>".$result_valeur_css[$c]->getDescription()."</td></tr></table>";
         endforeach;
-        
         echo "</td><td>".$result[$cle]->getDescription()."</td></tr>";
     endforeach;
 ?>

@@ -16,6 +16,9 @@ class Valeur_css_manager
 		$q->bindValue(':id_attribut_css',$add->getId_attribut_css());
 		if($q->execute()){
 			header('refresh:0');
+			$req = "\n";
+			$req .= 'INSERT INTO `valeur_css` (`id`, `valeur`, `description`, `id_attribut_css`) VALUES (NULL, "'.$add->getValeur() .'","'.$add->getDescription().'","'.$add->getId_attribut_css().'");';
+			file_put_contents('modele/base_c.sql',$req,FILE_APPEND);
 		 }else{
 			 echo 'Existe';
 		 }

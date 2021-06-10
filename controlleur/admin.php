@@ -10,6 +10,6 @@ $table_create = explode(';',$file);
 foreach($table_create as $valeur):
     $db->exec($valeur);
 endforeach;
-header('location:controlleur.root.php');
-echo $_SERVER['HTTP_HOST'];
+$url =  'http://'.$_SERVER['HTTP_HOST'] .'/application';
+header('location:'.$url);
 ?>

@@ -17,7 +17,7 @@ class Attribut_css_manager
 			header('refresh:0');
 			$req = "\n";
 			$req .= 'INSERT INTO `attribut_css` (`id`, `valeur`, `description`) VALUES (NULL, "'.$add->getValeur() .'","'.$add->getDescription().'");';
-			file_put_contents('../modele/base_c.sql',$req,FILE_APPEND);
+			file_put_contents('modele/base_c.sql',$req,FILE_APPEND);
 		 }else{
 			 echo 'Existe';
 		 }
